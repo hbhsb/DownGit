@@ -6,7 +6,7 @@ With this tool you can directly download or create download link to any GitHub *
 
 ### Website
 
-[DownGit ↑](https://minhaskamal.github.io/DownGit)
+[DownGit ↑](https://hbhsb.github.io/DownGit/)
 
 ### How to Use?
 
