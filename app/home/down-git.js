@@ -51,7 +51,7 @@ downGitModule.factory('downGitService', [
             }
 
             return info;
-        }
+        };
 
         var downloadDir = function(progress){
             progress.isProcessing.val = true;
@@ -62,7 +62,7 @@ downGitModule.factory('downGitService', [
 
             dirPaths.push(repoInfo.resPath);
             mapFileAndDirectory(dirPaths, files, requestedPromises, progress);
-        }
+        };
 
         var mapFileAndDirectory = function(dirPaths, files, requestedPromises, progress){
             $http.get(repoInfo.urlPrefix+dirPaths.pop()+repoInfo.urlPostfix).then(function(response) {
@@ -88,7 +88,7 @@ downGitModule.factory('downGitService', [
                     mapFileAndDirectory(dirPaths, files, requestedPromises, progress);
                 }
             });
-        }
+        };
 
         var downloadFiles = function(files, requestedPromises, progress){
             var zip = new JSZip();
@@ -105,7 +105,7 @@ downGitModule.factory('downGitService', [
                     saveAs(content, repoInfo.downloadFileName+".zip");
                 });
             });
-        }
+        };
 
         var getFile = function (path, url, files, requestedPromises, progress) {
             var promise = $http.get(url, {responseType: "arraybuffer"}).then(function (file) {
@@ -117,7 +117,7 @@ downGitModule.factory('downGitService', [
 
             requestedPromises.push(promise);
             progress.totalFiles.val = requestedPromises.length;
-        }
+        };
 
         var downloadFile = function (url, progress, toastr) {
             progress.isProcessing.val=true;
@@ -138,7 +138,7 @@ downGitModule.factory('downGitService', [
                 progress.isProcessing.val=false;
                 toastr.warning("Error! Server failure or wrong URL.", {iconClass: 'toast-down'});
             });
-        }
+        };
 
         return {
             downloadZippedFiles: function(parameters, progress, toastr) {
